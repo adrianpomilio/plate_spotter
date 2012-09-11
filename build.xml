@@ -1,0 +1,62 @@
+<project name="AWireframeBuilder" default="init" basedir=".">
+	<description>
+	        Wireframe build file to setup structure and utilities
+	</description>
+	  <!-- set global properties for this build -->
+		<property name="build.dir" location="build"/>
+		<property name="lib.dir" location="src/lib"/>
+		<property name="js.dir" location="src/js"/>
+		<property name="css.dir" location="src/css"/>
+		<!-- JSMin task definition , you will have to adjust the classpath to your JSMin jar location -->
+		<taskdef name="jsmin"
+	        classname="net.matthaynes.jsmin.JSMin_Task"
+	        classpath="/users/adrian/Development/jsmin/jsmin.0.2.4.jar"
+			/>
+	
+	<!-- default target that is run by the ant cmd, downloads from SVN (non-working copy) and sets up directory structure -->
+	<target name="init">
+		<exec executable="svn">
+			<!-- provide the correct dev kit svn path to the src directory -->
+			<arg line="export http://rail-chq-subver.railinc.com/svn/uilabs/trunk/approved_ui/Railinc_UI_2012_v2/src" />
+		</exec>
+		
+		<!-- creates directories that are used when minification and concatenation commands are run -->
+		<mkdir dir="${build.dir}"/>
+		<mkdir dir="${build.dir}/js"/>
+		<mkdir dir="${build.dir}/lib"/>
+		<mkdir dir="${build.dir}/css"/>
+		<mkdir dir="${build.dir}/html"/>
+		<mkdir dir="${build.dir}/images"/>
+		
+	 </target>
+	
+	<!-- used to concatenate 3rd party js files in order -->
+	  	<target name="jslibconcat">
+			<concat destfile="${build.dir}/lib/lib_concat.js" fixlastline="yes">
+				<filelist dir="${lib.dir}" files="jquery-1.7.1.min.js,jquery-ui-1.8.17.custom.min.js,jquery.hoverIntent.minified.js,jquery.tablesorter.min.js" /> 
+	    		<fileset dir="${lib.dir}" includes="**/*.js" excludes="jquery-1.7.1.min.js,jquery-ui-1.8.17.custom.min.js,jquery.hoverIntent.minified.js,jquery.tablesorter.min.js" />
+			</concat>
+	  	</target>
+	<!-- used to concatenate YOUR js files in order -->
+	  	<target name="railjsconcat">
+			<concat destfile="${build.dir}/js/rail_concat.js" fixlastline="yes">
+				<filelist dir="${js.dir}" files="standard.js, app.js" /> 
+	    		<fileset dir="${js.dir}" includes="**/*.js" excludes="standard.js, app.js" />
+			</concat>
+	  	</target>
+	<!-- used to concatenate ALL CSS files -->
+	  	<target name="railcssconcat">
+			<concat destfile="${build.dir}/css/rail_concat.css" fixlastline="yes">
+	    		<fileset dir="${css.dir}" includes="**/*.css" />
+			</concat>
+	  	</target>
+	<!-- used to minify YOUR concatenated JS file -->
+		<target name="jsminify">
+		    	<jsmin srcfile="${build.dir}/js/rail_concat.js" suffix="true" /> 
+				<!-- Used if you have multiples careful about order
+				<jsmin destdir="./build/js" force="true" suffix="true">
+				       <fileset dir="/build/js/" includes="**/*.js"/>
+				</jsmin>
+				-->
+		 </target>
+</project>
