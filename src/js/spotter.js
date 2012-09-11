@@ -118,7 +118,6 @@ var SPOTTER = (function(_s,window, document, $){
 		localStorage.setItem(type,JSON.stringify(obj));
 	};
 
-
 	// END private
 	
 	// START public methods
