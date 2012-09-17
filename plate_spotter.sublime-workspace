@@ -11,30 +11,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "src/html/index.html",
-			"settings":
-			{
-				"buffer_size": 1668,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/js/spotter.js",
-			"settings":
-			{
-				"buffer_size": 3221,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/css/app.css",
-			"settings":
-			{
-				"buffer_size": 237,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -60,6 +36,8 @@
 	},
 	"file_history":
 	[
+		"/Users/adrian/.gitignore_global",
+		"/Users/adrian/.ssh/id_rsa.pub",
 		"/Users/adrian/Documents/Projects/plate_spotter",
 		"/Users/adrian/Documents/Railinc/Railinc_LOA/js/wizard.js",
 		"/Users/adrian/test.html",
@@ -99,89 +77,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "src/html/index.html",
-					"settings":
-					{
-						"buffer_size": 1668,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1597,
-								1597
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 285.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "src/js/spotter.js",
-					"settings":
-					{
-						"buffer_size": 3221,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2735,
-								2735
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1653.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "src/css/app.css",
-					"settings":
-					{
-						"buffer_size": 237,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								72,
-								72
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
