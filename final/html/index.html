@@ -15,8 +15,9 @@
 	
 </header>
 <section id="spotFormPanel">
-	<article>Your Current Location:<span id="latLonDisplay"></span></article>
+	<article>Your Current Location:<div id="latLonDisplay"></div></article>
 	<header><h2>Select a State</h2></header>
+
 </section>
 <section>
 	<header><h2>My Plates</h2></header>
@@ -46,23 +47,23 @@
 	</div>
 </script>
 <script id="spot-view-template" type="text/x-handlebars-template">
-
-
-	
 		{{#each plates}}
 			<div class="license-plate" >
 				
-				<div class="license-plate-date">{{this.date}}</div>
+				<div class="license-plate-date">{{date}}</div>
 				
-				<div class="license-plate-state">{{this.state}}</div>
+				<div class="license-plate-state">{{state}}</div>
 
-				<div class="remove-plate-icon" data-plateId="{{this.date}}">x</div>
+				<div class="remove-plate-icon" data-plateId="{{date}}">x</div>
 
 			</div>
 			
-		{{/each}}
-	
+		{{/each}}	
 </div>
+</script>
+<script id="location-view-template" type="text/x-handlebars-template">
+		<label>Lat:</label>{{coords.latitude}} |
+		<label>Lon:</label>{{coords.longitude}}
 </script>
 
 </body>

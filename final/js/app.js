@@ -8,7 +8,11 @@ SPOTTER.init();
 		
 		
 		$('#statePicker').live('change',function(e){	
-			SPOTTER.setSpot();
+			if( $('#statePicker').val() !== "Choose State") {
+				SPOTTER.setSpot($('#statePicker').val());
+			}else {
+				console.log('nothing to set, you chose nothing');
+			}
 		});
 
 		

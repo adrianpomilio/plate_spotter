@@ -2,38 +2,36 @@
 var SPOTTER = ( function(_s, $){
 	"use strict";
 
-	var _locObj,params = {}, _mySpots = {plates:[]};
+	var _locObj, _mySpots = {plates:[]}, _watchPositionId;
 	
 	// initializer if needed
 	_s.init = function(){
 		
 		if(dealBreaker() !== false) {
-			params = params;
+			
 	    	initializeLocation();
 			initializeStorage();
 			reportPlateView(states);
 			displaySpotsView();
 	    }else{
-	    	document.querySelector('body').innerHTML = '<h1>Sorry, upgrade browser to play.</h1><p>You current browser does not support the required HTML5 elements.</p>';
+	    	document.querySelector('body').innerHTML = '<h1>Sorry, upgrade your browser to play.</h1><p>You current browser does not support the required HTML5 elements.</p>';
 	    }
 
 	};
 
 	// setSpot function available publicly
-	_s.setSpot = function(){
-		if($('#statePicker').val() !== "Choose State") {
+	_s.setSpot = function(state){
+		
 			var _obj = {};
-			_obj.state = $('#statePicker').val();
+			_obj.state = state;
 			_obj.yourLocation = _locObj;
 			_obj.date = new Date();
+			
 			_mySpots.plates.push(_obj);
 
 			setLocalStorageData('my_plates',_mySpots);
 			displaySpotsView();
 
-		}else {
-			console.log('nothing to set, you chose nothing');
-		}
 		
 	};
 
@@ -56,20 +54,14 @@ var SPOTTER = ( function(_s, $){
 
 	// Checking for all the required functionality to play the game
 	function dealBreaker(){
-		var validate;
 
-		// can you fix the bug?  It's somewhere in this if statement... :)
 		if(!navigator.geolocation){
-			validate = false;
-		}else if(window.hasOwnProperty('localStorage') && window.localStorage === null){
-			console.log('checking localstorage');
-			validate =  false;
-			
-		}else{
-			validate = true;
-		}
+			return false;
+		};
 
-		return validate;
+		//http://mathiasbynens.be/notes/localstorage-pattern
+
+		
 	};
 	
 	
@@ -81,32 +73,41 @@ var SPOTTER = ( function(_s, $){
 
 	function initializeStorage(){
 		if (!window.localStorage.getItem('my_plates')){
-			
-			localStorage.setItem('my_plates',JSON.stringify(_mySpots));
+			setLocalStorageData('my_plates', _mySpots)
 		}else {
-
-			_mySpots = JSON.parse(localStorage.getItem('my_plates'));
-
+			_mySpots = getLocalStorageData('my_plates');
 		}
+	};
+
+	function getLocalStorageData(key){
+		var _obj = JSON.parse(localStorage.getItem(key));
+		return _obj;
+
+	};
+
+	function setLocalStorageData(key, val){
+		localStorage.setItem(key,JSON.stringify(val));
 	};
 
 	function initializeLocation(){
 		 // makes a single call for location
-		 // navigator.geolocation.getCurrentPosition(setCurrentLocation, errorHandler);
+		 // navigator.geolocation.getCurrentPosition(setLocationHandler, errorHandler);
 
 		 // watches postion
+		 _watchPositionId = navigator.geolocation.watchPosition(setLocationHandler, errorHandler, {enableHighAccuracy:false, timeout:6000, maximumAge:5000});
 
 		
 	};
 
-	function setCurrentLocation(pos){
+	function setLocationHandler(pos){
+		_locObj = pos;
 
-			return _locObj = pos;
+		myLocationView(_locObj)
+
 	};
 
 
 	function templateCall(data, tmpl){
-  		"use strict";
 		var _data = data,
 			_template = tmpl;
 
@@ -119,20 +120,6 @@ var SPOTTER = ( function(_s, $){
 
 	}
 
-	
-
-	function getData(type){
-		var _obj = {};
-			_obj.data = JSON.parse(localStorage.getItem(type));
-
-		return _obj;
-
-	};
-
-	function setLocalStorageData(type, obj){
-		localStorage.setItem(type,JSON.stringify(obj));
-	};
-
 	function reportPlateView(states){
 		
 		var _html = templateCall(states, '#spot-create-template');
@@ -142,9 +129,17 @@ var SPOTTER = ( function(_s, $){
 	};
 
 	function displaySpotsView(){
+		
 		var _html = templateCall(_mySpots, '#spot-view-template');
 		$('#mySpotsPanel').html(_html).slideDown('slow');
 	};
+
+	function myLocationView(obj){
+		var _html = templateCall(obj, '#location-view-template');
+		$('#latLonDisplay').html(_html).show('slow');
+	
+	};
+
 	
 	return _s;
 	

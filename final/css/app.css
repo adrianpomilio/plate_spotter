@@ -3,6 +3,7 @@ html, body {margin:0; padding:0; font-family:Helvetica; font-size:1em;}
 nav ul {list-style:none; display:inline-block;}
 nav ul li {display:inline-block; height:24px; margin:5px; padding:5px;}
 
+section {margin:20px auto; width:400px;}
 
 
 .license-plate {
