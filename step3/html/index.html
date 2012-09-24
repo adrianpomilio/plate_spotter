@@ -48,13 +48,13 @@
 </script>
 <script id="spot-view-template" type="text/x-handlebars-template">
 		{{#each plates}}
-			<div class="license-plate" >
+			<div class="license-plate" id="{{id}}" >
 				
-				<div class="license-plate-date">{{date}}</div>
+				<div class="license-plate-number">{{date}}</div>
 				
 				<div class="license-plate-state">{{state}}</div>
 
-				<div class="remove-plate-icon" data-plateId="{{date}}">x</div>
+				<div class="remove-plate-icon" data-plateId="{{id}}">x</div>
 
 			</div>
 			

@@ -10,20 +10,23 @@
 
 <body>
 <!-- Header Begin -->
-<header>
-	<h1>Plate Spotter</h1>
-	
+
+<header class="header">
+	<h1>Plate Spotter</h1>	
 </header>
-<section id="spotFormPanel">
-	<article>Your Current Location:<div id="latLonDisplay"></div></article>
-	<header><h2>Select a State</h2></header>
-
-</section>
 <section>
-	<header><h2>My Plates</h2></header>
+	<article>Your Current Location:<div id="latLonDisplay"></div></article>
+</section>
+<section id="spotFormPanel" class="panel">	
+	<header class="sub-heading"><h2>Select a State</h2></header>
+</section>
+<section class="panel">
+	<header class="sub-heading"><h2>My Plates</h2></header>
 
-	<div id="mySpotsPanel">
+	<div id="mySpotsPanel"  >
 	</div>
+	<div class="clear"></div>
+</section>
 <footer>
 </footer>
 
@@ -48,13 +51,13 @@
 </script>
 <script id="spot-view-template" type="text/x-handlebars-template">
 		{{#each plates}}
-			<div class="license-plate" >
+			<div class="license-plate" id="{{id}}" >
 				
-				<div class="license-plate-date">{{date}}</div>
+				<div class="license-plate-number">{{date}}</div>
 				
 				<div class="license-plate-state">{{state}}</div>
 
-				<div class="remove-plate-icon" data-plateId="{{date}}">x</div>
+				<div class="remove-plate-icon" data-plateId="{{id}}">x</div>
 
 			</div>
 			

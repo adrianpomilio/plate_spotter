@@ -5,12 +5,15 @@ $(document).ready(function(){
 		SPOTTER.reportPlateView(states);
 		
 		$('#statePicker').live('change',function(e){	
-			
-			SPOTTER.setSpot();
+			if( $('#statePicker').val() !== "Choose State") {
+				SPOTTER.setSpot($('#statePicker').val());
+			}
 		});
 
+		
+
 		$('.remove-plate-icon').live('click', function(e){
-			console.log(e);
+			$('#'+e.currentTarget.parentElement.id).hide('slow');
 			SPOTTER.removeSpot(e.currentTarget.dataset.plateid);
 		})
 	

@@ -23,6 +23,7 @@ var SPOTTER = ( function(_s, $){
 	_s.setSpot = function(state){
 		
 			var _obj = {};
+			_obj.id = Math.floor(Math.random() * (1 - 10000 + 1) + 10000); // not the best way
 			_obj.state = state;
 			_obj.yourLocation = _locObj;
 			_obj.date = new Date();
@@ -39,10 +40,10 @@ var SPOTTER = ( function(_s, $){
 	_s.removeSpot = function(id){
 		var i = 0, len = _mySpots.plates.length;
 		for(i; i < len; i = i + 1){
-			if(id == _mySpots.plates[i].date){
+			if(id == _mySpots.plates[i].id){
 				_mySpots.plates.splice(i,1);
 				setLocalStorageData('my_plates',_mySpots);
-				displaySpotsView();
+				//displaySpotsView();
    				break;
 			}
 		}
