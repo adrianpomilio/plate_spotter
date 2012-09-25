@@ -43,7 +43,7 @@ var SPOTTER = ( function(_s, $){
 			if(id == _mySpots.plates[i].id){
 				_mySpots.plates.splice(i,1);
 				setLocalStorageData('my_plates',_mySpots);
-				//displaySpotsView();
+				displaySpotsView();
    				break;
 			}
 		}

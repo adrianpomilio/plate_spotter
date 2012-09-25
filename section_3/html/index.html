@@ -3,27 +3,29 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Plate Spotter - Local Storage</title>
+<title>Plate Spotter</title>
 
 <link rel="stylesheet" type="text/css" href="../css/app.css"/>
 </head>
 
 <body>
-<!-- Header Begin -->
-<header>
-	<h1>Plate Spotter</h1>
-	
+
+<header class="header">
+	<h1>Plate Spotter</h1>	
 </header>
-<section id="spotFormPanel">
-	<article>Your Current Location:<span id="latLonDisplay"></span></article>
-	<header><h2>Select a State</h2></header>
-	
+<section>
+	<article>Your Current Location:<div id="latLonDisplay"></div></article>
+</section>
+<section id="spotFormPanel">	
+	<header class="sub-heading"><h2>Select a State</h2></header>
 </section>
 <section>
-	<header><h2>My Plates</h2></header>
+	<header class="sub-heading"><h2>My Plates</h2></header>
 
-	<div id="mySpotsPanel">
+	<div id="mySpotsPanel"  >
 	</div>
+	<div class="clear"></div>
+</section>
 <footer>
 </footer>
 
@@ -38,7 +40,7 @@
 <script id="spot-create-template" type="text/x-handlebars-template">
 	<div id="spotCreatePanel">
 				<select id="statePicker">
-						<option value="Choose State" data-stateAbbr="{{abbr}}">Choose State</option>
+						<option value="Choose State">Choose State</option>
 					{{#each states}}
 						<option value="{{name}}">{{name}} - {{abbr}}</option>
 					{{/each}}
@@ -47,23 +49,23 @@
 	</div>
 </script>
 <script id="spot-view-template" type="text/x-handlebars-template">
-
-
-	
 		{{#each plates}}
-			<div class="license-plate" >
+			<div class="license-plate" id="{{id}}" >
 				
-				<div class="license-plate-date">{{this.date}}</div>
+				<div class="license-plate-number">{{date}}</div>
 				
-				<div class="license-plate-state">{{this.state}}</div>
+				<div class="license-plate-state">{{state}}</div>
 
-				<div class="remove-plate-icon" data-plateId="{{this.date}}">x</div>
+				<div class="remove-plate-icon" data-plateId="{{id}}">x</div>
 
 			</div>
 			
-		{{/each}}
-	
-</div>
+		{{/each}}	
+
+</script>
+<script id="location-view-template" type="text/x-handlebars-template">
+		<label>Lat:</label>{{coords.latitude}} 
+		<label>Lon:</label>{{coords.longitude}}
 </script>
 
 </body>

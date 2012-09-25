@@ -13,7 +13,10 @@ section {margin:10px auto;
 
 section > div {margin:5px auto;}
 
-select {margin:5px 20px; padding:5px; border:1px solid #333;}
+select {margin:5px 20px; 
+		padding:5px; 
+		border:1px solid #333;
+	}
 
 .header {
 	margin:20px auto;
@@ -22,12 +25,19 @@ select {margin:5px 20px; padding:5px; border:1px solid #333;}
 		border-radius:10px;
 		background:#fff;
 		color:#09F;
-}
+	}
 
 .sub-heading {margin:0; 
 		padding:5px;
-		border-bottom:1px solid #09F;}
-.sub-heading > h2 {margin:0; padding:0; font-size:1.2em;}
+		border-bottom:1px solid #09F;
+	}
+
+.sub-heading > h2 {margin:0; 
+		padding:0; 
+		font-size:1.2em;
+	}
+
+
 .clear{clear:both;}
 
 .license-plate {
@@ -41,14 +51,14 @@ select {margin:5px 20px; padding:5px; border:1px solid #333;}
 	text-align: center;
 	margin:10px ;
 	overflow:hidden;
-	background: #deefff; /* Old browsers */
-	background: -moz-linear-gradient(top,  #deefff 0%, #98bede 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#deefff), color-stop(100%,#98bede)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #deefff 0%,#98bede 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #deefff 0%,#98bede 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #deefff 0%,#98bede 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #deefff 0%,#98bede 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#deefff', endColorstr='#98bede',GradientType=0 ); /* IE6-9 */
+	background: #deefff; 
+	background: -moz-linear-gradient(top,  #deefff 0%, #98bede 100%); 
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#deefff), color-stop(100%,#98bede)); 
+	background: -webkit-linear-gradient(top,  #deefff 0%,#98bede 100%); 
+	background: -o-linear-gradient(top,  #deefff 0%,#98bede 100%); 
+	background: -ms-linear-gradient(top,  #deefff 0%,#98bede 100%); 
+	background: linear-gradient(to bottom,  #deefff 0%,#98bede 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#deefff', endColorstr='#98bede',GradientType=0 );
 
 }
 
@@ -83,3 +93,4 @@ select {margin:5px 20px; padding:5px; border:1px solid #333;}
 .remove-plate-icon:hover {
 	opacity:1;
 }
+

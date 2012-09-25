@@ -9,7 +9,6 @@
 </head>
 
 <body>
-<!-- Header Begin -->
 
 <header class="header">
 	<h1>Plate Spotter</h1>	
@@ -17,10 +16,10 @@
 <section>
 	<article>Your Current Location:<div id="latLonDisplay"></div></article>
 </section>
-<section id="spotFormPanel" class="panel">	
+<section id="spotFormPanel">	
 	<header class="sub-heading"><h2>Select a State</h2></header>
 </section>
-<section class="panel">
+<section>
 	<header class="sub-heading"><h2>My Plates</h2></header>
 
 	<div id="mySpotsPanel"  >
@@ -62,10 +61,10 @@
 			</div>
 			
 		{{/each}}	
-</div>
+
 </script>
 <script id="location-view-template" type="text/x-handlebars-template">
-		<label>Lat:</label>{{coords.latitude}} |
+		<label>Lat:</label>{{coords.latitude}} 
 		<label>Lon:</label>{{coords.longitude}}
 </script>
 
