@@ -16,6 +16,12 @@ Plate Spotter is a simple application that was built to teach a beginners level 
 ## Instructions
 You can simply pull everything down and follow the steps.  However it is important to understand that this for a hands on training environment, so the verbal/instructor part is key.
 
+## Contributors 
+* Adrian Pomilio 
+ * Twitter - http://twitter.com/adrianpomilio 
+ * Blog  - http://pomil.io
+                                                  
+
 ## Important Notes
 * This code is not optimized for a full on enterprise app, it is instructional code
 * Feature detection was not included in an effort to focus on key elements
